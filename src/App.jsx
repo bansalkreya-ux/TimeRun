@@ -1,4 +1,4 @@
-
+import { toMinutes } from "./utils/time";
 
 const sessions = [
   { start: "09:00", end: "10:30", activity: "University" },
@@ -6,6 +6,7 @@ const sessions = [
   { start: "11:00", end: "12:00", activity: "Programming" },
   { start: "13:00", end: "14:00", activity: "Lunch"}
 ]
+
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <ul>
         {sessions.map((s) => (
           <li key={s.start}>
-            {s.start} → {s.end} {s.activity}
+            {s.start} → {s.end} {s.activity} ({toMinutes(s.end) - toMinutes(s.start)} min)
           </li>
         ))}
       </ul>
