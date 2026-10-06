@@ -22,6 +22,12 @@ function App() {
     setSessions(updated)
   }
 
+  function handleDelete(id){
+    const keepSessions = sessions.filter((s) => s.id !== id)
+    setSessions(keepSessions)
+  }
+
+
   return (
     <div>
       <h1>TimeRun</h1>
@@ -42,6 +48,9 @@ function App() {
           {sessions.map((s) => (
             <li key={s.id}>
               {s.start} → {s.end} {s.activity} ({toMinutes(s.end) - toMinutes(s.start)} min)
+              <button onClick={() => handleDelete(s.id)}> 
+                X
+              </button>
             </li>
           ))}
         </ul>
