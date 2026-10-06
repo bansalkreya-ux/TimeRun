@@ -11,13 +11,14 @@ const initialSessions = [
 function App() {
   const [sessions, setSessions] = useState(initialSessions)
   const [showSessions, setShowSessions] = useState(false)
+  const [activityName, setActivityName] = useState("")
 
   function handleShow() {
     setShowSessions(!showSessions)
   }
 
   function handleAdd() {
-    const newSession = { id: Date.now(), start: "16:00", end: "18:00", activity: "Dinner" }  
+    const newSession = { id: Date.now(), start: "16:00", end: "18:00", activity:activityName }  
     const updated = [...sessions, newSession]
     setSessions(updated)
   }
@@ -38,6 +39,10 @@ function App() {
       <button onClick={handleShow}>
         Show all sessions
       </button>
+
+      <input value={activityName} onChange={(event) => setActivityName(event.target.value)}>
+
+      </input>
 
       <button onClick={handleAdd}>
         Add session
