@@ -20,6 +20,12 @@ function App() {
   }
 
   function handleAdd() {
+
+    if (activityName === "" || startTime === "" || endTime === "" || toMinutes(endTime) <= toMinutes(startTime)) {
+      return 
+    }
+
+
     const newSession = { id: Date.now(), start:startTime, end:endTime, activity:activityName }  
     const updated = [...sessions, newSession]
     setSessions(updated)
@@ -41,15 +47,15 @@ function App() {
       <h2>Today</h2>
 
       <div>
-        <input value={startTime} onChange={(event) => setStartTime(event.target.value)}>
+        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)}>
         
         </input>
 
-        <input value={endTime} onChange={(event) => setEndTime(event.target.value)}>
+        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)}>
         
         </input>
 
-      </div>
+      
 
       <input value={activityName} onChange={(event) => setActivityName(event.target.value)}>
       
@@ -58,6 +64,8 @@ function App() {
       <button onClick={handleAdd}>
         Add session
       </button>
+
+      </div>
 
       <div>
          <button onClick={handleShow}>
