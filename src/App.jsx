@@ -1,5 +1,6 @@
 import { toMinutes } from "./utils/time";
 import { useState } from "react";
+import "./App.css"
 
 const initialSessions = [
   { id: 1, start: "09:00", end: "10:30", activity: "University" },   
@@ -40,25 +41,37 @@ function App() {
 
 
   return (
-    <div>
+
+    <div className="app">
+
+
+    <nav className="sidebar">
       <h1>TimeRun</h1>
-      <p>Easiest way to keep track of where your time is going!</p>
+      <p>Today</p>
+      <p>History</p>
+      <p>Stats</p>
+    </nav>
+
+    <main className="main">{
+      
+      
+      
+  
+
+    <div>
+     
+     
 
       <h2>Today</h2>
 
       <div>
         <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)}>
-        
         </input>
 
         <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)}>
-        
         </input>
 
-      
-
       <input value={activityName} onChange={(event) => setActivityName(event.target.value)}>
-      
       </input>
 
       <button onClick={handleAdd}>
@@ -73,7 +86,6 @@ function App() {
         </button>
       </div>
 
-     
 
       {showSessions && (
         <ul>
@@ -87,6 +99,12 @@ function App() {
           ))}
         </ul>
       )}
+    </div>
+
+
+      }
+    </main>
+
     </div>
   )
 }
