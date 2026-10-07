@@ -1,5 +1,6 @@
 import { toMinutes } from "./utils/time";
 import { useState } from "react";
+import "./App.css"
 
 const initialSessions = [
   { id: 1, start: "09:00", end: "10:30", activity: "University" },   
@@ -40,31 +41,45 @@ function App() {
 
 
   return (
-    <div>
-      <h1>TimeRun</h1>
-      <p>Easiest way to keep track of where your time is going!</p>
 
+    <div className="app">
+
+
+    <nav className="sidebar">
+      <h1>TimeRun</h1>
+      <p>Today</p>
+      <p>History</p>
+      <p>Stats</p>
+    </nav>
+
+    <main className="main">
+
+    <div>
       <h2>Today</h2>
 
-      <div>
-        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)}>
-        
-        </input>
+      <div className="form-card">
+      
+      <h3> Add manually </h3>
 
-        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)}>
-        
-        </input>
 
+        <label> Start</label>
+        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)} /> 
+        
       
 
-      <input value={activityName} onChange={(event) => setActivityName(event.target.value)}>
-      
-      </input>
+        <label> End</label>
+        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)} /> 
+        
+       
+
+        <label> Activity</label>
+        <input value={activityName} onChange={(event) => setActivityName(event.target.value)} /> 
+        
+       
 
       <button onClick={handleAdd}>
         Add session
       </button>
-
       </div>
 
       <div>
@@ -73,7 +88,6 @@ function App() {
         </button>
       </div>
 
-     
 
       {showSessions && (
         <ul>
@@ -87,6 +101,9 @@ function App() {
           ))}
         </ul>
       )}
+    </div>
+    </main>
+
     </div>
   )
 }
