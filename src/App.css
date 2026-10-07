@@ -24,3 +24,18 @@
     margin: 0 0 28px;
 }
 
+.form-card {
+    background: #ffffff;
+    border: 1px solid #ddd7ca;
+    border-radius: 14px;
+    padding: 20px 24px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-card h3 {
+  margin: 0;
+}
+

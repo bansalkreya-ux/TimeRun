@@ -52,32 +52,34 @@ function App() {
       <p>Stats</p>
     </nav>
 
-    <main className="main">{
-      
-      
-      
-  
+    <main className="main">
 
     <div>
-     
-     
-
       <h2>Today</h2>
 
-      <div>
-        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)}>
-        </input>
+      <div className="form-card">
+      
+      <h3> Add manually </h3>
 
-        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)}>
-        </input>
 
-      <input value={activityName} onChange={(event) => setActivityName(event.target.value)}>
-      </input>
+        <label> Start</label>
+        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)} /> 
+        
+      
+
+        <label> End</label>
+        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)} /> 
+        
+       
+
+        <label> Activity</label>
+        <input value={activityName} onChange={(event) => setActivityName(event.target.value)} /> 
+        
+       
 
       <button onClick={handleAdd}>
         Add session
       </button>
-
       </div>
 
       <div>
@@ -100,9 +102,6 @@ function App() {
         </ul>
       )}
     </div>
-
-
-      }
     </main>
 
     </div>
