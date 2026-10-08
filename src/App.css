@@ -17,6 +17,7 @@
   width: 220px;
   padding: 32px 24px;
   border-right: 1px solid #ddd7ca;
+
 }
 
 .sidebar h1 {
@@ -37,6 +38,7 @@
 
 .form-card h3 {
   margin: 0;
+  
 }
 
 .sessions-card {
@@ -53,6 +55,7 @@
 
 .sessions-card h3 {
   margin: 0;
+  
 }
 
 .sessions-card ul {
@@ -65,5 +68,26 @@
     display: flex;
     gap: 24px;
     align-items: flex-start;
+}
+
+.session-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 5px;
+  border-bottom: #413e37 1px solid;
+}
+
+.session-time {
+  font-family: var(--mono);
+}
+
+.session-activity {
+  flex: 1;
+}
+
+.session-duration {
+  font-family: var(--mono);
+  color: #5f5a50;
 }
 

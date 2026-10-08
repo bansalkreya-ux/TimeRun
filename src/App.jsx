@@ -63,8 +63,11 @@ function App() {
 
         <ul>
           {sessions.map((s) => (
-            <li key={s.id}>
-              {s.start} → {s.end} {s.activity} ({toMinutes(s.end) - toMinutes(s.start)} min)
+            <li key={s.id} className="session-row">
+              <span className="session-time">{s.start} → {s.end}</span>
+              <span className="session-activity">{s.activity}</span>
+              <span className="session-duration">{toMinutes(s.end) - toMinutes(s.start)} min</span>
+
               <button onClick={() => handleDelete(s.id)}> 
                 X
               </button>
