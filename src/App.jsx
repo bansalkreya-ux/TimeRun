@@ -11,14 +11,11 @@ const initialSessions = [
 
 function App() {
   const [sessions, setSessions] = useState(initialSessions)
-  const [showSessions, setShowSessions] = useState(false)
   const [activityName, setActivityName] = useState("")
   const [startTime, setStartTime] = useState("")
   const [endTime, setEndTime] = useState("")
 
-  function handleShow() {
-    setShowSessions(!showSessions)
-  }
+ 
 
   function handleAdd() {
 
@@ -57,39 +54,13 @@ function App() {
     <div>
       <h2>Today</h2>
 
-      <div className="form-card">
-      
-      <h3> Add manually </h3>
+      <div className="cards"> 
 
+        {
+        <div className="sessions-card">
 
-        <label> Start</label>
-        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)} /> 
-        
-      
+          <h3> Sessions </h3>
 
-        <label> End</label>
-        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)} /> 
-        
-       
-
-        <label> Activity</label>
-        <input value={activityName} onChange={(event) => setActivityName(event.target.value)} /> 
-        
-       
-
-      <button onClick={handleAdd}>
-        Add session
-      </button>
-      </div>
-
-      <div>
-         <button onClick={handleShow}>
-          Show all sessions
-        </button>
-      </div>
-
-
-      {showSessions && (
         <ul>
           {sessions.map((s) => (
             <li key={s.id}>
@@ -100,7 +71,35 @@ function App() {
             </li>
           ))}
         </ul>
-      )}
+
+      </div>
+      }
+
+      <div className="form-card">
+      
+      <h3> Add manually </h3>
+
+        <label> Activity</label>
+        <input value={activityName} onChange={(event) => setActivityName(event.target.value)} /> 
+
+        <label> Start</label>
+        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)} /> 
+        
+      
+
+        <label> End</label>
+        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)} /> 
+        
+
+      <button onClick={handleAdd}>
+        Add session
+      </button>
+      </div>
+
+
+      
+
+      </div>
     </div>
     </main>
 
