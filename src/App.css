@@ -1,61 +1,53 @@
-
-
 .app {
-    display: flex;
-    min-height: 100svh;
+  display: flex;
+  min-height: 100svh;
 }
 
 .main {
-    
-    padding: 32px 24px;
-    flex: 1
-    
+  padding: 32px 24px;
+  flex: 1;
 }
-
 
 .sidebar {
   width: 220px;
   padding: 32px 24px;
   border-right: 1px solid #ddd7ca;
-
 }
 
 .sidebar h1 {
-    font-size: 26px;
-    margin: 0 0 28px;
+  font-size: 26px;
+  margin: 0 0 28px;
 }
 
 .form-card {
-    background: #ffffff;
-    border: 1px solid #ddd7ca;
-    border-radius: 14px;
-    padding: 20px 24px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  background: #ffffff;
+  border: 1px solid #ddd7ca;
+  border-radius: 14px;
+  padding: 20px 24px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .form-card h3 {
   margin: 0;
-  
 }
 
 .sessions-card {
-    background: #ffffff;
-    border: 1px solid #ddd7ca;
-    border-radius: 14px;
-    padding: 20px 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px 24px
+  background: #ffffff;
+  border: 1px solid #ddd7ca;
+  border-radius: 14px;
+  padding: 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px;
 }
 
 .sessions-card h3 {
   margin: 0;
-  
 }
 
 .sessions-card ul {
@@ -65,9 +57,9 @@
 }
 
 .cards {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 .session-row {
@@ -91,3 +83,18 @@
   color: #5f5a50;
 }
 
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+}
+
+.total-logged {
+  font-family: var(--mono);
+  color: #5f5a50;
+}
