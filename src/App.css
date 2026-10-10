@@ -67,7 +67,11 @@
   gap: 14px;
   align-items: center;
   padding: 5px;
-  border-bottom: #413e37 1px solid;
+  border-bottom: 1px solid #efebe2;
+}
+
+.session-row:last-child {
+  border-bottom: none;
 }
 
 .session-time {

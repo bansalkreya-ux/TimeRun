@@ -1,6 +1,7 @@
-import { toMinutes } from "./utils/time";
+import { toMinutes, formatDuration } from "./utils/time";
 import { useState } from "react";
 import "./App.css";
+
 
 const initialSessions = [
   { id: 1, start: "09:00", end: "10:30", activity: "University" },
@@ -64,7 +65,7 @@ function App() {
         <div>
           <header className="page-header">
             <h2>{today}</h2>
-            <span>{total} min logged</span>
+            <span>{formatDuration(total)} min logged</span>
           </header>
 
           <div className="cards">
@@ -80,7 +81,7 @@ function App() {
                       </span>
                       <span className="session-activity">{s.activity}</span>
                       <span className="session-duration">
-                        {toMinutes(s.end) - toMinutes(s.start)} min
+                        {formatDuration(toMinutes(s.end) - toMinutes(s.start))} min
                       </span>
 
                       <button onClick={() => handleDelete(s.id)}>X</button>
