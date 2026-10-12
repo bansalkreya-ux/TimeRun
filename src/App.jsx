@@ -1,5 +1,5 @@
 import { toMinutes, formatDuration } from "./utils/time";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 
@@ -10,11 +10,25 @@ const initialSessions = [
   { id: 4, start: "13:00", end: "14:00", activity: "Lunch" },
 ];
 
+function loadSessions() {
+  const saved = localStorage.getItem("sessions")
+  
+  if (saved === null) {
+    return initialSessions     // nothing saved yet: use the starting sessions
+  }
+
+  return JSON.parse(saved)      // turn the saved text back into an array
+}
+
 function App() {
-  const [sessions, setSessions] = useState(initialSessions);
+  const [sessions, setSessions] = useState(loadSessions);
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+
+useEffect(() => {
+    localStorage.setItem("sessions", JSON.stringify(sessions))
+}, [sessions]);
 
   function handleAdd() {
     if (
