@@ -25,6 +25,9 @@ function App() {
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  const [timerActivity, setTimerActivity] = useState("");
+  const [timerStart, setTimerStart] = useState(null)
+
 
 useEffect(() => {
     localStorage.setItem("sessions", JSON.stringify(sessions))
@@ -39,7 +42,6 @@ useEffect(() => {
     ) {
       return;
     }
-
     const newSession = {
       id: Date.now(),
       start: startTime,
@@ -48,6 +50,10 @@ useEffect(() => {
     };
     const updated = [...sessions, newSession];
     setSessions(updated);
+  }
+
+  function handleStart() {
+    setTimerStart(new Date());
   }
 
   function handleDelete(id) {
@@ -81,6 +87,17 @@ useEffect(() => {
             <h2>{today}</h2>
             <span>{formatDuration(total)} min logged</span>
           </header>
+
+          <div className="timer-card">
+
+            <input placeholder="What are you working on?"
+            
+            value={timerActivity}
+            onChange={(event) => setTimerActivity(event.target.value)}
+            />
+            <button onClick={handleStart}>Start</button>
+
+          </div>
 
           <div className="cards">
             {
